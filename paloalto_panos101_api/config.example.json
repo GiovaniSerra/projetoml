@@ -1,0 +1,14 @@
+{
+  "management_ip": "192.168.0.17",
+  "wan_interface": "ethernet1/2",
+  "wan_ip": "10.0.0.2",
+  "peer_wan_ip": "10.0.0.1",
+  "local_subnet": "192.168.20.0/24",
+  "remote_subnet": "192.168.10.0/24",
+  "tunnel_interface": "tunnel.1",
+  "tunnel_ip": "169.255.1.2/32",
+  "virtual_router": "default",
+  "lan_zone": "LAN",
+  "vpn_zone": "VPN",
+  "vsys": "vsys1"
+}

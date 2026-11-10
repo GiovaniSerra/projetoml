@@ -1,0 +1,28 @@
+# Ambiente e caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+
+# Segredos e configuracoes locais
+.env
+.env.*
+!.env.example
+**/config.json
+config.py
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Backups, logs e artefatos temporarios
+backups/
+**/backups/
+*.cfg
+*.bak
+*.log
+*.tmp
+*.rar
+*.zip

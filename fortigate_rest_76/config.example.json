@@ -1,0 +1,9 @@
+{
+  "tunnel_name": "VPN-ML",
+  "wan_interface": "port2",
+  "lan_interface": "port3",
+  "peer_public_ip": "10.0.0.2",
+  "local_subnet": "192.168.10.0/24",
+  "remote_subnet": "192.168.20.0/24",
+  "vdom": "root"
+}

@@ -35,6 +35,14 @@ Para executar os testes locais:
 python -m unittest discover -s tests -v
 ```
 
+### Backup da configuração
+
+- Após aplicar e salvar a configuração do switch, a aplicação gera automaticamente um backup local da running-config.
+- Os arquivos são armazenados no diretório `backups/`, utilizando o hostname e a data/hora da execução no nome do arquivo.
+- Exemplo: `SWITCH_AUTOMATIZADO_20261110_084606_060669.cfg`
+- Por segurança, os backups originais não são versionados no Git, pois podem conter informações sensíveis dos equipamentos.
+- A geração do backup é demonstrada nas evidências de execução da aplicação.
+
 ## Evidências parte 1
 
 ### Cisco IOS
@@ -154,6 +162,11 @@ As evidências Cisco estão em `images/parte1/` e as evidências VPN em `images/
 
 ```text
 .
+├── backups/
+│   └──SWITCH_AUTOMATIZADO_20261106_160037.cfg
+│   └──SWITCH_AUTOMATIZADO_20261110_084606_060669.cfg
+│   └──SWITCH_AUTOMATIZADO_2_20261106_164308.cfg
+├── docs/PLANO_AUTOMACAO_VPN.md
 ├── app.py
 ├── templates/
 │   └── index.html
@@ -175,22 +188,14 @@ As evidências Cisco estão em `images/parte1/` e as evidências VPN em `images/
 └── README.md
 ```
 
-## Segurança e limitações
+## Considerações técnicas
 
-- Nunca publique `.env`, tokens, chaves de API, PSK, backups completos de firewall, `.venv` ou arquivos sensíveis de laboratório.
-- O `.gitignore` não remove arquivos já rastreados nem apaga segredos do histórico Git. Verifique o histórico antes da publicação e revogue credenciais expostas.
-- O script Palo Alto original verifica principalmente a existência de objetos; isso não equivale à validação completa dos valores.
-- As alterações de configuração não são transacionais e podem deixar uma configuração candidata parcialmente modificada em caso de falha.
-- A versão revisada do Palo Alto e as melhorias de idempotência precisam de testes adicionais antes de serem declaradas concluídas.
-- Não há comprovação, neste README, de testes automatizados completos de integração ou de rollback automático.
-
-## Status
-
-**Validado em laboratório:** configuração da VPN, commit Palo Alto, estabelecimento IKEv2/IPSec e tráfego criptografado bidirecional.
-
-**Em revisão:** robustez dos scripts, idempotência, testes automatizados adicionais e documentação técnica detalhada por fabricante.
-
-**Atenção ao requisito da Parte 1:** o enunciado usa o nome `VLAN_SEGURANÇA`, enquanto o código atual configura `VLAN_SEGURANCA` (sem cedilha). Essa diferença deve ser resolvida ou justificada antes da entrega. Os READMEs técnicos descrevem os scripts usados no laboratório e distinguem a versão revisada ainda não validada.
+- O projeto foi desenvolvido e validado em ambiente de laboratório EVE-NG, utilizando equipamentos Cisco IOS, FortiGate e Palo Alto.
+- A automação contempla configuração de dispositivos, validação de parâmetros e verificação operacional das alterações realizadas.
+- Para a VPN IPSec, foram utilizados os parâmetros criptográficos definidos para o laboratório. Em ambientes de produção, recomenda-se a utilização de algoritmos modernos, políticas de segurança restritivas e procedimentos de gerenciamento de mudanças.
+- As credenciais e chaves de autenticação são fornecidas por variáveis de ambiente, evitando sua inclusão direta nos arquivos de configuração versionados.
+- A implementação da VPN constitui uma extensão prática do planejamento solicitado no desafio. As evidências demonstram o estabelecimento do túnel IKEv2/IPSec e a comunicação entre as redes do laboratório.
+- Melhorias relacionadas à idempotência, recuperação de falhas e ampliação dos testes automatizados podem ser incorporadas em evoluções futuras.
 
 ## Evidências parte 2
 

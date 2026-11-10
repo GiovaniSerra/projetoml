@@ -35,6 +35,15 @@ Para executar os testes locais:
 python -m unittest discover -s tests -v
 ```
 
+## Evidências parte 1
+
+### Cisco IOS
+
+![Aplicação e backup pelo frontend](images/parte1/success-evidencia.PNG)
+
+![VLANs configuradas no switch](images/parte1/evidencia-vlans.PNG)
+
+
 ## Parte 2: VPN IPSec FortiGate e Palo Alto
 
 A segunda parte automatiza a criação de uma VPN **route-based**, com IKEv2, entre um FortiGate e um Palo Alto. Os scripts criam objetos de VPN, interfaces de túnel, rotas e políticas de segurança conforme os recursos de cada plataforma.
@@ -183,13 +192,7 @@ As evidências Cisco estão em `images/parte1/` e as evidências VPN em `images/
 
 **Atenção ao requisito da Parte 1:** o enunciado usa o nome `VLAN_SEGURANÇA`, enquanto o código atual configura `VLAN_SEGURANCA` (sem cedilha). Essa diferença deve ser resolvida ou justificada antes da entrega. Os READMEs técnicos descrevem os scripts usados no laboratório e distinguem a versão revisada ainda não validada.
 
-## Evidências selecionadas
-
-### Cisco IOS
-
-![Aplicação e backup pelo frontend](images/parte1/success-evidencia.PNG)
-
-![VLANs configuradas no switch](images/parte1/evidencia-vlans.PNG)
+## Evidências parte 2
 
 ### VPN IPSec
 
